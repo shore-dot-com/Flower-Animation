@@ -1,0 +1,151 @@
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+  
+}
+
+/* Container */
+.container{
+    position:relative;
+    width:300px;
+    height:500px;
+}
+
+/* Stem */
+.stem{
+    position:absolute;
+    width:10px;
+    height:250px;
+    background:linear-gradient(to bottom,#7CFC00,#228B22);
+    left:50%;
+    bottom:50px;
+    transform:translateX(-50%);
+    border-radius:10px;
+
+    animation:growStem 2s ease forwards;
+    transform-origin:bottom;
+}
+
+@keyframes growStem{
+    from{
+        transform:translateX(-50%) scaleY(0);
+    }
+    to{
+        transform:translateX(-50%) scaleY(1);
+    }
+}
+
+/* Leaves */
+.leaf{
+    position:absolute;
+    width:70px;
+    height:35px;
+    background:linear-gradient(to right,#32CD32,#228B22);
+    border-radius:50%;
+    top:260px;
+    opacity:0;
+}
+
+.left{
+    left:95px;
+    transform:rotate(-30deg);
+
+    animation:showLeaf 1s ease forwards;
+    animation-delay:1.5s;
+}
+
+.right{
+    right:95px;
+    transform:rotate(30deg);
+
+    animation:showLeaf 1s ease forwards;
+    animation-delay:1.5s;
+}
+
+@keyframes showLeaf{
+    from{
+        opacity:0;
+        transform:scale(0) rotate(0deg);
+    }
+    to{
+        opacity:1;
+    }
+}
+
+/* Flower Center */
+.center{
+    position:absolute;
+    width:80px;
+    height:80px;
+    background:radial-gradient(circle,#3b0000,#3e26056a);
+    border-radius:50%;
+    left:50%;
+    top:120px;
+    transform:translateX(-50%);
+    z-index:5;
+    opacity:0;
+
+    animation:showCenter 1s ease forwards;
+    animation-delay:2s;
+
+
+    
+}
+
+@keyframes showCenter{
+    from{
+        transform:translateX(-50%) scale(0);
+        opacity:0;
+    }
+    to{
+        transform:translateX(-50%) scale(1);
+        opacity:1;
+    }
+}
+
+/* Petals */
+.petal{
+    position:absolute;
+    width:60px;
+    height:110px;
+    background:orange;
+    border-radius:50%;
+    left:50%;
+    top:50px;
+    transform-origin:center bottom;
+    opacity:0;
+
+    animation:bloom 1s ease forwards;
+    animation-delay:2.5s;
+}
+
+/* Petal positions */
+.p1{ transform:translateX(-50%) rotate(0deg); }
+.p2{ transform:translateX(-50%) rotate(45deg); }
+.p3{ transform:translateX(-50%) rotate(90deg); }
+.p4{ transform:translateX(-50%) rotate(135deg); }
+.p5{ transform:translateX(-50%) rotate(180deg); }
+.p6{ transform:translateX(-50%) rotate(225deg); }
+.p7{ transform:translateX(-50%) rotate(270deg); }
+.p8{ transform:translateX(-50%) rotate(315deg); }
+
+@keyframes bloom{
+    from{
+        opacity:0;
+        transform:translateX(-50%) scale(0) rotate(0deg);
+    }
+    to{
+        opacity:1;
+    }
+}
